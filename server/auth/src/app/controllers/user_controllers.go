@@ -292,6 +292,54 @@ func UpdateUser(w http.ResponseWriter, r *http.Request) {
 			Message: message,
 		})
 
+	case "image":
+		type Img struct {
+			Img_Uri string `json:"img_uri" bson:"img_uri"`
+		}
+
+		var image Img
+		err := json.Unmarshal(body, &image)
+		if err != nil {
+			responses.ERROR(w, http.StatusUnprocessableEntity, err)
+			return
+		}
+
+		message, err := UpdateImg(image.Img_Uri, _id)
+		if err != nil {
+			responses.ERROR(w, http.StatusUnprocessableEntity, err)
+			return
+		}
+
+		responses.JSON(w, http.StatusOK, struct {
+			Message string `json:"message"`
+		}{
+			Message: message,
+		})
+
+	case "plan":
+		type Plan struct {
+			Current_Plan string `json:"current_plan" bson:"current_plan"`
+		}
+
+		var plan Plan
+		err := json.Unmarshal(body, &plan)
+		if err != nil {
+			responses.ERROR(w, http.StatusUnprocessableEntity, err)
+			return
+		}
+
+		message, err := UpdatePlan(plan.Current_Plan, _id)
+		if err != nil {
+			responses.ERROR(w, http.StatusUnprocessableEntity, err)
+			return
+		}
+
+		responses.JSON(w, http.StatusOK, struct {
+			Message string `json:"message"`
+		}{
+			Message: message,
+		})
+
 	case "password":
 		type Pass struct {
 			Pass string `json:"password" bson:"password"`

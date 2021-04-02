@@ -1,0 +1,167 @@
+.container_set {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 50em;
+    height: 30em;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    margin-top: 5px;
+    z-index: 99;
+}
+
+.content_multisteps {
+    width: 100%;
+    box-shadow: 0px 0px 12px 2px rgba(15, 15, 15, 0.2);
+    height: 100%;
+    border-radius: 3px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Form upload */
+.container_upload {
+    width: 100%;
+    display: flex;
+}
+
+.img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 0px 12px 2px rgba(15, 15, 15, 0.2);
+}
+
+.group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+}
+
+.div_file {
+    display: inline-block;
+    position: relative;
+    padding: 10px;
+    width: 150px;
+    background-color: #2499e3;
+    border-radius: 7px;
+    box-shadow: 0 3px 0 #1a71a9;
+    transition: background-color .5s ease;
+}
+
+.div_file:hover {
+    background-color: #1a71a9;
+    box-shadow: 0 3px 0 #238bcc;
+}
+
+.add_file {
+    color: #fff;
+    text-align: center;
+}
+
+.file {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Plan */
+.content_plan {
+    display: flex;
+}
+
+.card {
+    width: 15em;
+    margin: 0 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0px 0px 12px 2px rgba(15, 15, 15, 0.2);
+    transition: all .5s ease;
+}
+
+.card:hover {
+    transform: translate(0, -5px);
+}
+
+.input {
+    display: none;
+}
+
+.panel {
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.panel .panel_heading {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.panel .panel_heading span {
+    font-size: 30px;
+    color: #474747;
+}
+
+.panel .panel_body {
+    display: block;
+    text-align: center;
+}
+
+.panel .panel_body div {
+    margin: 5px 0;
+    font-size: 20px;
+}
+
+.panel .panel_body div span {
+    color: #474747;
+}
+
+.input:checked ~ .panel {
+    border: 3px solid #48cae4;
+}
+
+/* Container Buttons */
+.content_btns {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+.content_btns .btn {
+    margin: 0 10px;
+    border: none;
+    width: 90px;
+    height: 30px;
+    font-size: 20px;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn_skip {
+    background: transparent;
+    color: #CD5D67;
+}
+
+.btn_send {
+    background: #274690;
+    color: #fff;
+    border-radius: 5px;
+}

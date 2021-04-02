@@ -59,10 +59,52 @@ func UpdateUsername(username string, _id primitive.ObjectID) (string, error) {
 
 }
 
+func UpdatePlan(plan string, _id primitive.ObjectID) (string, error) {
+
+	after := options.After
+
+	returnOpr := options.FindOneAndUpdateOptions{
+		ReturnDocument: &after,
+	}
+
+	update := bson.D{{"$set", bson.D{{"current_plan", plan}}}}
+
+	var result primitive.M
+	err := user_collection.FindOneAndUpdate(context.TODO(), bson.D{{"_id", _id}}, update, &returnOpr).Decode(&result)
+	if err != nil {
+		fmt.Println(err)
+		return "", err
+	}
+
+	return "Plan updated successfully", nil
+
+}
+
+func UpdateImg(img_uri string, _id primitive.ObjectID) (string, error) {
+
+	after := options.After
+
+	returnOpr := options.FindOneAndUpdateOptions{
+		ReturnDocument: &after,
+	}
+
+	update := bson.D{{"$set", bson.D{{"img_uri", img_uri}}}}
+
+	var result primitive.M
+	err := user_collection.FindOneAndUpdate(context.TODO(), bson.D{{"_id", _id}}, update, &returnOpr).Decode(&result)
+	if err != nil {
+		return "", err
+	}
+
+	return "Image updated successfully", nil
+
+}
+
 func UpdatePassword(password string, _id primitive.ObjectID) (string, error) {
 
 	hashedPassword, err := security.Hash(password)
 	if err != nil {
+		fmt.Println(err)
 		return "", err
 	}
 

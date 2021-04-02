@@ -1,0 +1,14 @@
+.loader_content {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #457b9d;
+}
+
+.loader_content h2 {
+    font-size: 50px;
+    color: #1d3557;
+}
